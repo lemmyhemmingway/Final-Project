@@ -2,6 +2,7 @@ using Business.Abstract;
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entites.Concrete;
+using Entites.DTOs;
 
 namespace Business.Concrete;
 
@@ -33,5 +34,9 @@ public class ProductManager: IProductService
     {
         _productDal.Add(product);
     }
-    
+
+    public List<ProductDetailDto> GetProductDetails()
+    {
+        return _productDal.GetProductDetail();
+    }
 }

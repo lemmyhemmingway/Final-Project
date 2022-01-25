@@ -6,6 +6,16 @@ using DataAccess.Concrete.InMemory;
 using Entites.Concrete;
 
 
+void CategoryTest()
+{
+    CategoryManager cm = new(new EfCategoryDal());
+    var categories = cm.GetAll();
+    foreach (var category in categories)
+    {
+        Console.WriteLine(category.CategoryName);
+    }
+}
+
 void ProductManagerTest()
 {
     ProductManager pm = new ProductManager(new EfProductDal());
@@ -15,9 +25,3 @@ void ProductManagerTest()
     });
 }
 
-CategoryManager cm = new(new EfCategoryDal());
-var categories = cm.GetAll();
-foreach (var category in categories)
-{
-    Console.WriteLine(category.CategoryName);
-}
