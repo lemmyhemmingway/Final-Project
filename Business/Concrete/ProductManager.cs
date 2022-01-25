@@ -18,4 +18,20 @@ public class ProductManager: IProductService
     {
         return _productDal.GetAll();
     }
+
+    public List<Product> GetAllByCategoryId(int id)
+    {
+        return _productDal.GetAll(p => p.CategoryId == id);
+    }
+
+    public List<Product> GetAllByUnitPrice(decimal minPrice, decimal maxPrice)
+    {
+        return _productDal.GetAll(p => p.UnitPrice >= minPrice && p.UnitPrice <= maxPrice);
+    }
+
+    public void Add(Product product)
+    {
+        _productDal.Add(product);
+    }
+    
 }

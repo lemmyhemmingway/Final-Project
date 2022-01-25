@@ -1,4 +1,4 @@
-namespace Entites.Abstract;
+namespace Core.Entities;
 
 public interface IEntity
 {

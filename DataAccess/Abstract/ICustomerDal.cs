@@ -1,3 +1,4 @@
+using Core.DataAccess;
 using Entites.Concrete;
 
 namespace DataAccess.Abstract;
