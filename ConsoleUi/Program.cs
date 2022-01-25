@@ -6,8 +6,18 @@ using DataAccess.Concrete.InMemory;
 using Entites.Concrete;
 
 
-ProductManager pm = new ProductManager(new EFProductDal());
-pm.Add(new Product
+void ProductManagerTest()
 {
-    Id = 1, CategoryId = 1, ProductName = "test", UnitPrice = 1, UnitsInStock = 1
-});
+    ProductManager pm = new ProductManager(new EfProductDal());
+    pm.Add(new Product
+    {
+        Id = 1, CategoryId = 1, ProductName = "test", UnitPrice = 1, UnitsInStock = 1
+    });
+}
+
+CategoryManager cm = new(new EfCategoryDal());
+var categories = cm.GetAll();
+foreach (var category in categories)
+{
+    Console.WriteLine(category.CategoryName);
+}
